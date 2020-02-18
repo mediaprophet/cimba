@@ -166,7 +166,7 @@ angular.module( 'Cimba.home', [
                     var DCT = $rdf.Namespace("http://purl.org/dc/terms/");
                     var FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
                     var SIOC = $rdf.Namespace("http://rdfs.org/sioc/ns#");
-                    var LDPX = $rdf.Namespace("http://ns.rww.io/ldpx#");
+                    var LDPX = $rdf.Namespace("http://ns.solid.community/ldpx#");
                     var g = $rdf.graph();
 
                     // add uB triple (append trailing slash since we got dir)
@@ -401,7 +401,7 @@ angular.module( 'Cimba.home', [
                 var DCT = $rdf.Namespace("http://purl.org/dc/terms/");
                 var FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
                 var SIOC = $rdf.Namespace("http://rdfs.org/sioc/ns#");
-                var LDPX = $rdf.Namespace("http://ns.rww.io/ldpx#");
+                var LDPX = $rdf.Namespace("http://ns.solid.community/ldpx#");
                 var g = $rdf.graph();
 
                 // add uB triple (append trailing slash since we got dir)

@@ -1,6 +1,6 @@
 // some config
-var PROXY = "https://rww.io/proxy?uri={uri}";
-var AUTH_PROXY = "https://rww.io/auth-proxy?uri=";
+var PROXY = "https://solid.community/proxy?uri={uri}";
+var AUTH_PROXY = "https://solid.community/auth-proxy?uri=";
 var TIMEOUT = 90000;
 var meta_starts_with_dot = false;
 // add filters
@@ -651,7 +651,7 @@ function CimbaCtrl($scope, $http, $filter) {
 				var DCT = $rdf.Namespace("http://purl.org/dc/terms/");
 			    var FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
 			    var SIOC = $rdf.Namespace("http://rdfs.org/sioc/ns#");
-			    var LDPX = $rdf.Namespace("http://ns.rww.io/ldpx#");
+			    var LDPX = $rdf.Namespace("http://ns.solid.community/ldpx#");
 				var g = $rdf.graph();
 			    if (metaURI.indexOf ('/.') != -1)
 			      meta_starts_with_dot = true;
@@ -792,7 +792,7 @@ function CimbaCtrl($scope, $http, $filter) {
 					var DCT = $rdf.Namespace("http://purl.org/dc/terms/");
 				    var FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
 				    var SIOC = $rdf.Namespace("http://rdfs.org/sioc/ns#");
-				    var LDPX = $rdf.Namespace("http://ns.rww.io/ldpx#");
+				    var LDPX = $rdf.Namespace("http://ns.solid.community/ldpx#");
 					var g = $rdf.graph();
 
 					// add uB triple (append trailing slash since we got dir)

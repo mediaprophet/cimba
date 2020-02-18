@@ -16,7 +16,7 @@ describe( 'MainCtrl', function() {
   //       $http: $http,
   //       $timeout: $timeout
   //     });
-  //     // userID = "https://henchill.rww.io/profile/card#m3";
+  //     // userID = "https://henchill.solid.community/profile/card#m3";
   //     // $scope.login(userID);
   //   }));
 

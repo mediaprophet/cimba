@@ -1,6 +1,6 @@
 // Globals
-var PROXY = "https://rww.io/proxy?uri={uri}";
-var AUTH_PROXY = "https://rww.io/auth-proxy?uri=";
+var PROXY = "https://solid.community/proxy?uri={uri}";
+var AUTH_PROXY = "https://solid.community/auth-proxy?uri=";
 var TIMEOUT = 90000;
 var DEBUG = true;
 

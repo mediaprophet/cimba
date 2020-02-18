@@ -32,7 +32,7 @@ describe('login section', function() {
 
   // The test below fails because the factory for noticesData is not integrated
   it('should set the userProfile to the value of the WebID', inject(function() {
-    var webid = '//deiu.rww.io/profile/card#me';
+    var webid = '//deiu.solid.community/profile/card#me';
     // AngularJS does not encode : anymore so we have to hack around it
     httpBackend.expectGET('http://api.webizen.org/v1/search?q='+'https:'+encodeURIComponent(webid)).respond(200, '');
 

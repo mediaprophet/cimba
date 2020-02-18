@@ -16,9 +16,9 @@ describe('posts section', function() {
 			$sce: $sce
 		});
 
-		webid = '//henchill.rww.io/profile/card#me';
+		webid = '//henchill.solid.community/profile/card#me';
 		_channel = {
-			uri: 'https://henchill.rww.io/storage/myfirstblog/ch1/',
+			uri: 'https://henchill.solid.community/storage/myfirstblog/ch1/',
 			title: 'Channel1',
 			owner: webid
 		};
