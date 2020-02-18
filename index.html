@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="CimbaApp">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>Cimba</title>
 <meta name="generator" content="Cimba">
@@ -27,10 +27,10 @@
 <script type='text/javascript' src="dev/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="dev/js/jquery-ui.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
-
+<script type="text/javascript" src="//solid.github.io/solid-auth-client/dist/solid-auth-client.bundle.js"></script>
 <script src="dev/js/angular.min.js"></script>
-<script src="dev/js/angular-ui.min.js"></script> 
-<script src="dev/js/rdflib.js"></script> 
+<script src="dev/js/angular-ui.min.js"></script>
+<script src="dev/js/rdflib.js"></script>
 <!-- local -->
 <script type='text/javascript' src="js/jquery.notify.js"></script>
 <!-- <script type='text/javascript' src="js/rdflib.min.js"></script> -->
@@ -42,16 +42,16 @@
 <!--[if lt IE 9]>
   <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-    
+
 <link rel="shortcut icon" type="img/png" href="favicon.png">
 </head>
-    
+
 <body ng-cloak>
 <div ng-controller="CimbaCtrl">
     <div class="navbar navbar-default" id="subnav">
         <div class="col-md-12">
             <div class="navbar-header">
-                <img src="img/cimba-logo.png" class="logo">                
+                <img src="img/cimba-logo.png" class="logo">
                 <button id="menuToggle" type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target="#navbar-collapse2">
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-bars fa-2x blue"></i>
@@ -72,7 +72,7 @@
                   <li ng-show="loggedin"><a href="#" ng-click="clearSession()" role="button"><i class="fa fa-sign-out"></i> Logout</a></li>
               </ul>
             </div>
-        </div>	
+        </div>
     </div>
 
     <!--main-->
@@ -83,7 +83,7 @@
             <div class="clear-70"></div>
             <div class="col-md-12">
                 <!-- new post -->
-                <div class="panel panel-default" ng-show="loggedin"> 
+                <div class="panel panel-default" ng-show="loggedin">
                     <div class="panel-heading dark-blue">
                         <div class="pull-left">
                             <a id="pic" class="thumbnail pull-right" href="{{me.webid}}">
@@ -97,7 +97,7 @@
                           <h3 class="bold" ng-show="profileloading">Loading profile...</h3>
                           <h3 class="bold" ng-show="me.name && !me.chspace">Hello {{me.name}}!</h3>
 			  <h3 class="bold" ng-show="me.chspace">What's new<span ng-show="me.name != ''">, </span><a ng-show="me.name != ''" href="{{me.webid}}">{{me.name}}</a>?</h3>
-                          <form ng-hide="me.webid && !me.chspace">                               
+                          <form ng-hide="me.webid && !me.chspace">
                               <textarea name="message" ng-model="postbody" class="form-control message" placeholder="Type your message here.." required></textarea>
                               <div class="btn-group">
                                   <button id="audience" class="btn btn-primary" disabled><i class="fa {{audience.icon}} fa-2x white"></i></button><button class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#"> <small class="drop" rel="tooltip" data-placement="top" title="Audience"><i class="fa fa-chevron-down fa-2x"></i></small></button>
@@ -130,12 +130,12 @@
             </div>
         </div>
     </div>
-    
+
     <!-- WebID authentication failed/missing -->
     <div id="setup" class="container" ng-show="testwebid">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default"> 
+                <div class="panel panel-default">
                     <div class="panel-heading dark-blue">
                       &nbsp;
                     </div>
@@ -143,7 +143,7 @@
                         <div class="panel-body">
                           <h2 class="text-center">We were unable to authentify you using WebID-TLS!</h2>
                           <div class="text-center">
-                            <a href="https://auth.my-profile.eu/auth/index.php?verbose=on" target="_blank"><button class="btn btn-primary btn-sep-right">Test your WebID</button></a>
+                            <a href="//solid.github.io/solid-auth-client/dist/popup.html" target="_blank"><button class="btn btn-primary btn-sep-right">Test your WebID</button></a>
                             <a href="#loginModal" role="button" data-toggle="modal"><button class="btn btn-primary">Sign up for a WebID</button></a>
                           </div>
                         </div>
@@ -157,7 +157,7 @@
     <div id="setup" class="container" ng-show="!me.webid">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default"> 
+                <div class="panel panel-default">
                     <div class="panel-heading dark-blue">
                       &nbsp;
                     </div>
@@ -267,8 +267,8 @@
                       <button class="btn btn-primary" ng-click="newStorage(true)" ng-disabled="!storageuri" tooltip="Skip all configuration">{{addstoragebtn}} (simple)</button>
                       <button class="btn btn-primary" ng-click="newStorage()" ng-disabled="!storageuri" rel="tooltip" data-placement="top" title="Choose configuration options">{{addstoragebtn}} (advanced)</button>
                       <button class="btn btn-info btn-sep-right" data-dismiss="modal" aria-hidden="true">Close</button>
-                  </div>  
-              </div>      
+                  </div>
+              </div>
           </div>
       </div>
     </div>
@@ -277,8 +277,8 @@
     <div id="newMBModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
           <div class="modal-content">
-              <div class="modal-header">                 
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>              
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                   <h3 class="text-center">Create a new microblog workspace</h3>
               </div>
               <div class="modal-body">
@@ -290,7 +290,7 @@
                   <div class="col-md-12">
                       <button class="btn btn-primary" ng-click="newMB()" ng-disabled="!mburi">{{createbtn}}</button>
                       <button class="btn btn-info btn-sep-right" data-dismiss="modal" aria-hidden="true">Close</button>
-                  </div>  
+                  </div>
               </div>
           </div>
       </div>
@@ -306,7 +306,7 @@
               </div>
               <div class="modal-body">
                   <form class="m10">
-                  <p>The name you provide will be used to create a new channel inside your microblog.</p>                  
+                  <p>The name you provide will be used to create a new channel inside your microblog.</p>
                   <p><input type="text" id="channelname" name="channelname" ng-model="channelname" class="form-control" placeholder="Name (Main, Work, etc.).." required ng-pattern="/^[A-Za-z0-9_ ]*$/"></p>
                   <div class="btn-group">
                       <button id="audience" class="btn btn-primary" disabled><i class="fa {{audience.icon}} fa-2x white"></i></button><button class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#"> <small class="drop" rel="tooltip" data-placement="top" title="Audience"><i class="fa fa-chevron-down fa-2x"></i></small></button>
@@ -322,7 +322,7 @@
                   <div class="col-md-12">
                       <button class="btn btn-primary" ng-click="newChannel()" ng-disabled="!channelname">{{createbtn}}</button>
                       <button class="btn btn-info btn-sep-right" data-dismiss="modal" aria-hidden="true">Close</button>
-                  </div>  
+                  </div>
               </div>
           </div>
       </div>
@@ -345,7 +345,7 @@
                 <div class="modal-footer">
                     <div class="col-md-12">
                         <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
@@ -397,7 +397,7 @@
                 <div class="modal-footer">
                     <div class="col-md-12">
                         <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
@@ -452,13 +452,13 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h2 class="text-center">Login / Sign Up</h2>
       </div>
-      <div class="modal-body">         
+      <div class="modal-body">
           <iframe id="signup" src="" sandbox="allow-same-origin allow-scripts allow-forms" frameborder="0"></iframe>
       </div>
       <div class="modal-footer">
           <div class="col-md-12">
               <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
-          </div>  
+          </div>
       </div>
   </div>
   </div>
@@ -493,7 +493,7 @@ $(document).ready(function() {
 
     // login/signup widget source
     var providerURI = '//linkeddata.github.io/signup/index.html?ref=';
-    
+
     // set the parameter in the src of iframe
     document.getElementById('signup').src = providerURI+window.location.protocol+'//'+window.location.host;
     //document.getElementById('directLogin').href = providerURI+window.location.protocol+'//'+window.location.host+'#login';

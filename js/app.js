@@ -141,6 +141,18 @@ function CimbaCtrl($scope, $http, $filter) {
 		}
 	}
 
+// new solid auth 2019
+
+const popupUri = 'popup.html';
+$('#login button').click(() => solid.auth.popupLogin({ popupUri }));
+
+solid.auth.trackSession(session => {
+  const loggedIn = !!session;
+  $('#login').toggle(!loggedIn);
+  $('#logout').toggle(loggedIn);
+  $('#user').text(session && session.webId);
+});
+
 	// save the list of users + channels
 	$scope.saveUsers = function () {
 		// save to PDS
